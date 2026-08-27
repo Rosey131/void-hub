@@ -1,28 +1,3 @@
-Here is the **complete, fully merged master script** incorporating **every single function** from all uploaded files.
-
----
-
-### Duplicate Function Comparison & Resolution
-
-| Feature Type | Source 1 (SigmaHub) | Source 2 (CosmicHub) | Source 3 (Verbal / RingParts) | Winner & Merger Rationale |
-| :--- | :--- | :--- | :--- | :--- |
-| **Grab Strength & Launch** | 6 separate buttons with hardcoded values (50, 250, 400, 1e12, `math.huge`). | Strength slider + mobile ContextAction Gui hook. | AlignPosition & Torque force attach. | **Merged into Adaptive Strength Engine**: 1 dynamic toggle + slider (10 to 10,000 / `math.huge`) supporting both mouse release and mobile context buttons. |
-| **Aimbot / Target Locking** | Viewport FOV Circle + Camera CFrame interpolation. | Hookmetamethod Raycast Silent Aim with ping-based prediction & target box drawing. | N/A | **Merged both**: Clean Camera Aim Assist in `Combat` AND Metamethod Silent Aim with Dynamic Ping Prediction in `Combat`/`Auras`. |
-| **Physics / Orbit Auras** | N/A | Launch Aura, Telekinesis Aura, Death Aura (Target part ownership). | Super Ring Parts Tornado with trigonometric vortex calculation & `SimulationRadius`. | **Merged into Auras Suite**: Kept all 4 distinct aura modes with unified radius and height controls. |
-| **Anti-Defense Guard** | N/A | Anti-Grab (Struggle), Anti-Explode, Anti-Fire, Anti-Void, Anti-Blobman, Anti-Lag. | Part collision disabling (`CanCollide = false`). | **Merged into Invincibility Tab**: Dedicated toggles for each defense mechanism with automatic connection cleanup. |
-| **Blobman Exploitation & Tools** | N/A | Spawn remote, Seat mount, God Loop, CreatureGrab/Drop alternating detectors, Hover. | N/A | **Converted into Blobman Tab**: Fully preserved all vehicle seat, hover, and alternating weld detectors. |
-| **Player List Dropdowns** | Separate manual loop dropdowns in each tab. | Fragmented dropdown instances requiring manual `:Refresh()`. | N/A | **Unified Player Manager**: A single centralized registry that automatically synchronizes all dropdowns across all tabs on PlayerAdded/PlayerRemoving. |
-
----
-
-### Complete Merged Script (`ROSEY_FTAP_MASTER.lua`)
-
-```lua
--- ============================================================
--- ROSEY FTAP — FULL UNIFIED MASTER PROJECT
--- Every feature from all source files merged into WindUI
--- ============================================================
-
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
